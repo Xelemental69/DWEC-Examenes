@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECURSIVIDAD</title>
+</head>
+<body>
+    
+    <p>let array = [1,2,3,4];
+    Array.isArray(array); // true
+    </p>
+
+    <p id="res"></p>
+
+    <script>
+
+        let numeros = [1, [2, 3, 4], [8, 15, [5, 1]], 27];
+        console.log(numeros);
+        // ESCRIBE TU CODIGO AQUÍ
+        let suma = 0;
+        let dump = document.getElementById("res");
+
+        let sumaArrays = (arr, i) => {
+
+            if(i >= arr.length) return suma;
+
+            if(Array.isArray(arr[i])){
+                
+                console.log("Array encontrado: " + arr[i].toString());
+                sumaArrays(arr[i], 0);
+
+            }else{
+
+                suma += arr[i];
+
+            }
+
+            console.log(suma);
+            return sumaArrays(arr, i + 1);
+
+        }
+
+        dump.innerHTML = "La suma total es: " + sumaArrays(numeros, 0);
+
+    </script>
+
+</body>
+
+</html>

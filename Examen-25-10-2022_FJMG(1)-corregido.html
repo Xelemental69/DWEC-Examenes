@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>retos JavaScript</title>
+</head>
+<body>
+<h1>retos JavaScript</h1>
+<script>
+let frutas = ["aguacate","pera","manzana","naranja","tomate","granada",
+"mango", "litchi","nispero"];
+let tropicales = ["aguacate", "mango", "litchi","nispero"];
+let tropicStock =
+[{fruta:"manzana",stock:55},{fruta:"aguacate",stock:50},
+{fruta:"mango",stock:10},
+{fruta:"litchi",stock:20},{fruta:"nispero",stock:25}];
+//Nombre de las frutas tropicales con un stock mayor de 21
+
+    console.log(tropicStock.filter(z => tropicales.find(t => t == z.fruta)).filter(x => x.stock > 21).map(y => y.fruta));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULEVRA_LIGHT</title>
+</head>
+<body>
+    
+    <ul id="solucion"></ul>
+
+    <script>
+let mapa = [['*', '', '','*','*','*'],
+            ['*', '', '', '', '', ''],
+            ['*', '', '', '','*','*'],
+            ['*', '', '', '', '', ''],
+            ['*','*','*','*','*','*']];
+const maxx = mapa.length;
+const maxy = mapa[0].length;
+let xs = "[69";
+let ys = "[69";
+let posx = [];
+let posy = [];
+//console.log(JSON.parse(xs));
+let k;
+//console.log(JSON.stringify(mapa));/*
+var elemento = document.createElement("li");
+k =  kulevra(0,0);
+console.log("En la posición 0,0 hay una culebra de " + k + " posiciones");
+elemento.appendChild(document.createTextNode("En la posición 0,0 hay una culebra de " + k +" posiciones"));
+document.getElementById("solucion").appendChild(elemento);
+
+elemento = document.createElement("li");
+k =  kulevra(0,1);
+console.log("En la posición 0,1 hay una culebra de " + k + " posiciones");
+elemento.appendChild(document.createTextNode("En la posición 0,1 hay una culebra de " + k + " posiciones"));
+document.getElementById("solucion").appendChild(elemento);
+
+elemento = document.createElement("li");
+k =  kulevra(0,4);
+console.log("En la posición 0,4 hay una culebra de " + k + " posiciones");
+elemento.appendChild(document.createTextNode("En la posición 0,4 hay una culebra de " + k + " posiciones"));
+document.getElementById("solucion").appendChild(elemento);
+
+elemento = document.createElement("li");
+k =  kulevra(2,4);
+console.log("En la posición 2,4 hay una culebra de " + k + " posiciones");
+elemento.appendChild(document.createTextNode("En la posición 2,4 hay una culebra de " + k +" posiciones"));
+document.getElementById("solucion").appendChild(elemento);
+
+elemento = document.createElement("li");
+k =  kulevra(3,0);
+console.log("En la posición 3,0 hay una culebra de " + k + " posiciones");
+elemento.appendChild(document.createTextNode("En la posición 3,0 hay una culebra de " + k +" posiciones"));
+document.getElementById("solucion").appendChild(elemento);
+
+function find(x, y, i){
+
+    //console.log(posx);
+    //console.log(posy);
+    //console.log(posx);
+    //console.log(posy);
+    //console.log(x + "," + y + "|" + posx[i] + "," + posy[i]);
+
+
+    if(i == posx.length) return false;
+
+    if(posx[i] == x && posy[i] == y) return true;
+
+    else return find(x, y, i + 1);
+
+}
+
+function long(x, y, l){
+
+    let z = 0;
+    xs += "," + x;
+    ys += "," + y;
+    //console.log(xs);
+    //console.log(ys);
+    posx = JSON.parse(xs + "]");
+    posy = JSON.parse(ys + "]");
+
+    if(mapa[x][y] == '*'){
+
+        z++;
+        console.log("(" + x + ";" + y + ") --> *? -> Sí" );
+
+    }else{ 
+        
+        console.log("(" + x + ";" + y + ") --> *? -> No");
+        return z;
+    
+    }
+
+    if((x > 0 && mapa[x - 1][y] == '*') && !find(x - 1, y, 0)){
+
+        z += long(x - 1, y, z);
+
+    }
+
+    if(x < maxx - 1 && mapa[x + 1][y] == '*' && !find(x + 1, y, 0)){
+
+        z += long(x + 1, y, z);
+
+    }
+
+    if(y > 0 && mapa[x][y - 1] == '*' && !find(x, y - 1, 0)){
+
+        z += long(x, y - 1, z);
+
+    }
+
+    if(y < maxy - 1 && mapa[x][y + 1] == '*' && !find(x, y + 1, 0)){
+
+        z += long(x, y + 1, z);
+
+    }
+
+    return z;
+
+}
+
+function kulevra(x,y){
+
+    xs = "[-69";
+    ys = "[-69";
+    //posx[posx.length] = 69;
+    //posy[posy.length] = 69;
+    posx = [];
+    posy = [];
+
+    //console.log(posx);
+    //console.log(posy);
+
+    //past[past.length] = long(x, y, 0);
+    return long(x, y, 0);
+
+}
+// */
+</script>
+</body>
+</html>
