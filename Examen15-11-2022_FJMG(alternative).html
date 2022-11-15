@@ -37,48 +37,9 @@
 
             }
 
-            
-
-            /*if(i < x.children.length && (x.childNodes[i].nodeName == "SUB" || x.childNodes[i].nodeName == "SUP")){
-
-                aux = x.childNodes[i].innerHTML;
-                console.log(aux);            
-                newChild = document.createElement("strong");
-                newChild.appendChild(document.createTextNode(aux));
-                
-                x.appendChild(newChild);
-                x.replaceChild(newChild, x.childNodes[i]);
-
-                //console.log(x);
-
-                lastSupPrice(x, i + 1);
-
-                /*console.log(Array.from(x).map(x => {
-                    
-                    if(x.children.nodeName == "SUB" || x.children.nodeName == "SUP"){
-
-                        aux = document.createElement("strong");
-
-                        aux.appendChild.createTextNode(x.children)
-
-                    }}));*/
-
-                    //console.log(x.map(z => z.children));*/
-
-            //lastSupPrice = (x) => {
-
-                //x.innerHTML = x.innerHTML.replace("<sub>", "<strong>");
-                //x.innerHTML = x.innerHTML.replace("</sub>", "</strong>");
-                //x.innerHTML = x.innerHTML.replace("<sup>", "<strong>");
-                //x.innerHTML = x.innerHTML.replace("</sup>", "</strong>");
-
-                //console.log(x.children);
-            //}
-
         }
 
         lastSupPrice(document.getElementById("busca"), document.getElementById("busca"));
-        //Array.from(document.getElementById("busca").children).map(z => lastSupPrice(z));
 
         console.log(document.getElementById("busca").children);
 
