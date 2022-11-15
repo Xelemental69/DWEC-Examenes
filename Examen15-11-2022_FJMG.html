@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen 6A</title>
+</head>
+<body>
+    
+    <div id="busca">
+        <p >Caperucita roja, era una nena<sub>mu wena</sub> que le gustaba ir
+        a casa de su <sup>awelita</sup>
+        </p>
+        <p>Un día, un lobito <sup>marvao</sup></p>
+        <p>Se metió en la casa de la awela<sup>a comer puchero</sup> con
+        tagarnina</p>
+    </div>
+
+    <script>
+
+        //console.log(Array.from(document.getElementById("busca").children));
+
+        lastSupPrice = (x) => {
+
+            Array.from(x.children).map(z => z.outerHTML = z.outerHTML.replace("<sup>", "<strong>").replace("<sub>", "<strong>").replace("</sup>", "<strong>").replace("</sub>", "<strong>"));
+
+            console.log(x.children);
+
+        }
+
+        Array.from(document.getElementById("busca").children).map(z => lastSupPrice(z));
+
+    </script>
+
+</body>
+</html>
