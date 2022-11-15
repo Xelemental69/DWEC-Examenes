@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen 6A</title>
+</head>
+<body>
+    
+    <div id="busca">
+        <p >Caperucita roja, era una nena<sub>mu wena</sub> que le gustaba ir
+        a casa de su <sup>awelita</sup>
+        </p>
+        <p>Un día, un lobito <sup>marvao</sup></p>
+        <p>Se metió en la casa de la awela<sup>a comer puchero</sup> con
+        tagarnina</p>
+    </div>
+
+    <script>
+
+        console.log(Array.from(document.getElementById("busca").children));
+
+        lastSupPrice = (x, y) => {
+
+            if(x.nodeName == 'SUB' || x.nodeName == 'SUP'){
+
+                aux = x.innerHTML;
+                newChild = document.createElement("strong");
+                newChild.appendChild(document.createTextNode(aux));
+                y.appendChild(newChild);
+                y.replaceChild(newChild, x);
+
+            }else{
+
+                Array.from(x.children).map(z => lastSupPrice(z, x));
+
+            }
+
+            
+
+            /*if(i < x.children.length && (x.childNodes[i].nodeName == "SUB" || x.childNodes[i].nodeName == "SUP")){
+
+                aux = x.childNodes[i].innerHTML;
+                console.log(aux);            
+                newChild = document.createElement("strong");
+                newChild.appendChild(document.createTextNode(aux));
+                
+                x.appendChild(newChild);
+                x.replaceChild(newChild, x.childNodes[i]);
+
+                //console.log(x);
+
+                lastSupPrice(x, i + 1);
+
+                /*console.log(Array.from(x).map(x => {
+                    
+                    if(x.children.nodeName == "SUB" || x.children.nodeName == "SUP"){
+
+                        aux = document.createElement("strong");
+
+                        aux.appendChild.createTextNode(x.children)
+
+                    }}));*/
+
+                    //console.log(x.map(z => z.children));*/
+
+            //lastSupPrice = (x) => {
+
+                //x.innerHTML = x.innerHTML.replace("<sub>", "<strong>");
+                //x.innerHTML = x.innerHTML.replace("</sub>", "</strong>");
+                //x.innerHTML = x.innerHTML.replace("<sup>", "<strong>");
+                //x.innerHTML = x.innerHTML.replace("</sup>", "</strong>");
+
+                //console.log(x.children);
+            //}
+
+        }
+
+        lastSupPrice(document.getElementById("busca"), document.getElementById("busca"));
+        //Array.from(document.getElementById("busca").children).map(z => lastSupPrice(z));
+
+        console.log(document.getElementById("busca").children);
+
+    </script>
+
+</body>
+</html>
